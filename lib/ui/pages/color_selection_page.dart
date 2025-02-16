@@ -6,7 +6,8 @@ import '../../utils/color_utils.dart';
 import '../widgets/color_palette.dart';
 
 class ColorSelectionPage extends StatelessWidget {
-  const ColorSelectionPage({Key? key}) : super(key: key);
+  final Function(String) onColorSelected;
+  const ColorSelectionPage({Key? key, required this.onColorSelected}) : super(key: key);
 
   void showDialog() {
     Get.dialog(const AlertDialog(
@@ -84,5 +85,6 @@ class ColorSelectionPage extends StatelessWidget {
 
   void showColor(String value) {
     // aqui llamar al callback del main widget
+    onColorSelected(value);
   }
 }
